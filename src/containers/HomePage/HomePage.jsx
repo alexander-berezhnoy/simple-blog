@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+// import { connect } from 'react-redux';
+// import { createStructuredSelector } from 'reselect';
 
-const HomePage = () => <h1>HomePage</h1>;
-// const res = useFetch('https://simple-blog-api.crew.red/posts');
-// if (!res.response) {
-//     return <div>Loading</div>;
-// }
-// return (
-//     <div className="App">
-//         <h1>List of Posts</h1>
-//         <div className="post-container">
-//             {res.response.map(post => (
-//                 <div key={post.id}>
-//                     <h3>{`#${post.id} ${post.title}`}</h3>
-//                     <p>{post.content ? post.content : post.body}</p>
-//                 </div>
-//             ))}
-//         </div>
-//     </div>
-// );
+// import { fetchPostsStartAsync } from '../../actions/postActions';
+// import { selectIsPostsFetching } from '../../selectors/postSelectors';
+
+// import withSpinner from '../../components/withSpinner';
+// import PostList from "../../components/PostList";
+import Post from "../../components/Post";
+
+// const PostListWithSpinner = withSpinner(PostList);
+
+const HomePage = ({ isPostsFetching, fetchPostsStartAsync }) => {
+
+    // useEffect(() => {
+    //     fetchPostsStartAsync();
+    // }, []);
+
+    return (
+        // <PostListWithSpinner isLoading={isPostsFetching} {...props} />
+        <Post />
+    )
+
+};
 export default HomePage;
+// const mapStateToProps = createStructuredSelector({
+//     isPostsFetching: selectIsPostsFetching
+// });
+
+// const mapDispatchToProps = dispatch => ({
+//     fetchPostsStartAsync: () => dispatch(fetchPostsStartAsync())
+// });
+
+// export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
