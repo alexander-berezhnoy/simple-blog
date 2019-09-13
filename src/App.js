@@ -1,23 +1,16 @@
 import React from 'react';
-import useFetch from './components/useFetch';
+import { Switch, Route } from 'react-router-dom';
+
+// import useFetch from './components/useFetch';
+import HomePage from './containers/HomePage';
+import PostPage from './containers/PostPage';
 
 const App = () => {
-    const res = useFetch('https://simple-blog-api.crew.red/comments');
-    if (!res.response) {
-        return <div>Loading</div>;
-    }
     return (
-        <div className="App">
-            <h1>List of Posts</h1>
-            <div className="post-container">
-                {res.response.map(post => (
-                    <div key={post.id}>
-                        <h3>{`#${post.id} ${post.title}`}</h3>
-                        <p>{post.body}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
+        <Switch>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/posts" component={PostPage} />
+        </Switch>
     );
 };
 
