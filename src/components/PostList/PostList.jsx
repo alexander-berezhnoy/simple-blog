@@ -10,14 +10,13 @@ import { PostsContainer, PostDivider } from './PostListStyles';
 const PostList = ({ posts }) => {
     return (
         <PostsContainer>
-            {/* {
+            {
                 posts.map((post, index) => {
                     return index ? (<><PostDivider /><Post key={post.id} post={post} /> </>) : (<Post key={post.id} post={post} />)
                 })
-            } */}
-            <Post />
-        </PostsContainer>
-    );
+            }
+        </PostsContainer>);
+
 }
 
 const mapStateToProps = createStructuredSelector({
