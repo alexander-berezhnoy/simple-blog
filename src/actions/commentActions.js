@@ -26,7 +26,6 @@ export const createCommentStartAsync = (comment) => {
             },
             body: JSON.stringify(comment)
         });
-        console.log(res);
         if (!res.error) {
             dispatch(createCommentSuccess(res.response));
         } else {

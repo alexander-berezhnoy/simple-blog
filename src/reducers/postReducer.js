@@ -4,7 +4,13 @@ const INITIAL_STATE = {
     data: [],
     isFetching: false,
     errorMessage: '',
-    currentPost: null
+    currentPost: {
+        title: '',
+        author: '',
+        body: '',
+        date: '',
+        comments: []
+    }
 };
 
 const postReducer = (state = INITIAL_STATE, action) => {

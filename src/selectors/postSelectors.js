@@ -9,3 +9,7 @@ export const selectPostsData = createSelector(
 export const selectIsFetching = createSelector(
     [selectPosts], posts => posts.isFetching
 );
+
+export const selectCurrentPost = createSelector(
+    [selectPosts], posts => posts.currentPost
+)

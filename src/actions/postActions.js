@@ -25,14 +25,12 @@ export const fetchPostsStartAsync = () => {
                 const postsData = await json.map(item => ({
                     ...item
                 }));
-                console.log(postsData);
                 dispatch(fetchPostsSuccess(postsData));
             } catch (err) {
                 dispatch(fetchPostsFailure(err));
             }
         };
         fetchData();
-
     };
 };
 
@@ -51,15 +49,20 @@ export const viewPostFailure = errorMessage => ({
     payload: errorMessage
 });
 
-export const viewPostStartAsync = (postId) => {
+export const viewPostStartAsync = () => {
     return dispatch => {
         dispatch(viewPostStart());
-        const res = useFetch(`https://simple-blog-api.crew.red/posts/${postId}?_embed=comments`);
-        console.log(res);
-        if (!res.error) {
-            dispatch(viewPostSuccess(res.response));
-        } else {
-            dispatch(viewPostFailure(res.error));
-        }
+        const fetchData = async () => {
+            try {
+                const url = `https://simple-blog-api.crew.red/posts/18?_embed=comments`;
+                const resPost = await fetch(url);
+                const jsonPost = await resPost.json();
+                const post = { ...jsonPost, comments: jsonPost.comments.map(comment => ({ ...comment })) };
+                dispatch(viewPostSuccess(post));
+            } catch (err) {
+                dispatch(viewPostFailure(err));
+            }
+        };
+        fetchData();
     };
 };
