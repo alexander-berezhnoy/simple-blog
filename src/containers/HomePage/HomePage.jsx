@@ -1,29 +1,25 @@
 import React, { useEffect } from 'react';
+import useFetch from '../../components/useFetch';
+import Spinner from '../../components/Spinner';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
 import { fetchPostsStartAsync } from '../../actions/postActions';
-import { selectIsPostsFetching } from '../../selectors/postSelectors';
+import { selectIsFetching } from '../../selectors/postSelectors';
 
 import withSpinner from '../../components/withSpinner';
-import PostList from "../../components/PostList";
+import PostList from '../../components/PostList';
 
 const PostListWithSpinner = withSpinner(PostList);
 
-const HomePage = ({ isPostsFetching, fetchPostsStartAsync }) => {
-
+const HomePage = ({ arePostsFetching, fetchPostsStartAsync }) => {
     useEffect(() => {
         fetchPostsStartAsync();
     }, []);
-
-    return (
-        <PostListWithSpinner isLoading={isPostsFetching} {...props} />
-    )
-
+    return <PostListWithSpinner isLoading={arePostsFetching} />;
 };
-
 const mapStateToProps = createStructuredSelector({
-    isPostsFetching: selectIsPostsFetching
+    arePostsFetching: selectIsFetching
 });
 
 const mapDispatchToProps = dispatch => ({

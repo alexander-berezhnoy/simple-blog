@@ -3,14 +3,13 @@ import React from 'react';
 import { PostContainer, PostDate, PostTitle, PostAuthor } from './PostStyles';
 
 const Post = ({ post }) => {
-    const { title, author, date, id } = post;
-    const content = post.content ? post.content : post.body;
+    const { title, author, date, body } = post;
     return (
         <PostContainer>
             <PostDate>{date}</PostDate>
-            <PostTitle>{title}{` #${id}`}</PostTitle>
+            <PostTitle>{title}</PostTitle>
             <PostAuthor>{author}</PostAuthor>
-            <p>{content}</p>
+            <p>{body}</p>
         </PostContainer>
     )
 }

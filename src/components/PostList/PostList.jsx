@@ -8,6 +8,8 @@ import Post from '../Post';
 import { PostsContainer, PostDivider } from './PostListStyles';
 
 const PostList = ({ posts }) => {
+    console.log(posts);
+
     return (
         <PostsContainer>
             {

@@ -1,7 +1,7 @@
 import postActionTypes from '../actions/postActionTypes';
 
 const INITIAL_STATE = {
-    data: null,
+    data: [],
     isFetching: false,
     errorMessage: '',
     currentPost: null
