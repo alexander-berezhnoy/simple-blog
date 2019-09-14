@@ -13,9 +13,7 @@ const PostList = ({ posts }) => {
     return (
         <PostsContainer>
             {
-                posts.map((post, index) => {
-                    return index ? (<><PostDivider /><Post key={post.id} post={post} /> </>) : (<Post key={post.id} post={post} />)
-                })
+                posts.map((post, index) => (<Post post={post} key={post.id} />))
             }
         </PostsContainer>);
 

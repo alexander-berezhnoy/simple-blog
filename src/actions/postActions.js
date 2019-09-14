@@ -1,5 +1,4 @@
 import postActionTypes from './postActionTypes';
-import useFetch from '../components/useFetch';
 
 // Actions for viewing all posts
 export const fetchPostsStart = () => ({
@@ -19,13 +18,21 @@ export const fetchPostsFailure = errorMessage => ({
 export const fetchPostsStartAsync = () => {
     return dispatch => {
         dispatch(fetchPostsStart());
-        const res = useFetch('https://simple-blog-api.crew.red/posts');
-        console.log(res);
-        if (!res.error) {
-            dispatch(fetchPostsStart(res.response));
-        } else {
-            dispatch(fetchPostsFailure(res.error));
-        }
+        const fetchData = async () => {
+            try {
+                const res = await fetch('https://simple-blog-api.crew.red/posts');
+                const json = await res.json();
+                const postsData = await json.map(item => ({
+                    ...item
+                }));
+                console.log(postsData);
+                dispatch(fetchPostsSuccess(postsData));
+            } catch (err) {
+                dispatch(fetchPostsFailure(err));
+            }
+        };
+        fetchData();
+
     };
 };
 

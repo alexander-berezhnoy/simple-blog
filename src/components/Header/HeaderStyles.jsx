@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 
 export const HeaderContainer = styled.nav`
-  height: 70px;
+  height: 50px;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-bottom: 25px;
   background-color: #1144AA;
   color: #fff;
@@ -14,15 +15,12 @@ export const HeaderContainer = styled.nav`
       font-family: Lobster, cursive;
   }
   @media screen and (max-width: 768px) {
-    height: 60px;
     padding: 10px;
   }
   @media screen and (max-width: 576px) {
-    height: 50px;
     margin-bottom: 15px;
   }
   @media screen and (max-width: 376px) {
-    height: 40px;
     padding: 5px;
   }
 `;

@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-import useFetch from '../../components/useFetch';
-import Spinner from '../../components/Spinner';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 

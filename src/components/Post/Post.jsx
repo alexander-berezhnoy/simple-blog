@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PostContainer, PostDate, PostTitle, PostAuthor } from './PostStyles';
+import { PostContainer, PostDate, PostTitle, PostAuthor, PostDivider } from './PostStyles';
 
 const Post = ({ post }) => {
     const { title, author, date, body } = post;
@@ -10,6 +10,7 @@ const Post = ({ post }) => {
             <PostTitle>{title}</PostTitle>
             <PostAuthor>{author}</PostAuthor>
             <p>{body}</p>
+            <PostDivider></PostDivider>
         </PostContainer>
     )
 }

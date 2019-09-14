@@ -24,9 +24,3 @@ export const PostsContainer = styled.div`
   }
 `;
 
-export const PostDivider = styled.hr`
-    height: 0px;
-    border: 0px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-`;
